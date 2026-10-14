@@ -71,22 +71,31 @@ function evaluate_grade($score) {
         return "Invalid Input: Score can only be between 0 and 100!";
     }
 
-    // 02: If-else Logic
     // 03: Multi-Grade Challenge
     // Excellent (>= 95), Very Good (>= 90), Good (>= 85), Bad (>= 80), Very Bad (>= 75), Failed (>= 0)
+		$comment = "";
     if ($score >= 95) {
-        return "Passed: Excellent";
+        $comment = "Excellent";
     } else if ($score >= 90) {
-        return "Passed: Very Good";
+        $comment = "Very Good";
     } else if ($score >= 85) {
-        return "Passed: Good";
+        $comment = "Good";
     } else if ($score >= 80) {
-        return "Failed: Bad";
+        $comment = "Bad";
     } else if ($score >= 75) {
-        return "Failed: Very Bad";
+        $comment = "Very Bad";
     } else if ($score >= 70) {
-        return "Failed: Worst";
-    }
+        $comment = "Worst";
+		}
+
+    // 02: If-else Logic
+		if ($score >= 85) {
+			$status = "Passed";
+		} else {
+			$status = "Failed";
+		}
+
+		return "$status - '$comment'";
 }
 
 // 01: Display Information
